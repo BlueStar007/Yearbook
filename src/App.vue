@@ -2,31 +2,33 @@
   <div id="app" >
     <img alt="Vue logo" src="./assets/logo.png">
 
-    <HelloWorld @changer="one"/>
-    <List :list="list"></List>
-    <div class="loading"><Loading /></div>
+    <sele @changer="one"/>
+    <List :list="list" v-show="!show"></List>
+    <div class="loading" v-show="show"><Loading /></div>
   </div>
 </template>
 
 <script>
 import {ChannelId} from './components/getDate'
-import HelloWorld from './components/sele.vue'
+import sele from './components/sele.vue'
 import List from './components/listC'
 import Loading from './components/Loading'
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    sele,
     List,
     Loading
   },
   data(){
     return{
-      list: 'undefault'
+      list: 'undefault',
+      show: true
     }
   },
   methods: {
     one(e){
+      this.show=true;
       this.itemId=e;
       this.getList(e)
       
@@ -34,6 +36,7 @@ export default {
     async getList(id){ 
             var i= await ChannelId(id);  
             this.list=i;
+            this.show=false
     },
   }
 }
