@@ -4,6 +4,7 @@
 
     <HelloWorld @changer="one"/>
     <List :list="list"></List>
+    <div class="loading"><Loading /></div>
   </div>
 </template>
 
@@ -11,11 +12,13 @@
 import {ChannelId} from './components/getDate'
 import HelloWorld from './components/sele.vue'
 import List from './components/listC'
+import Loading from './components/Loading'
 export default {
   name: 'App',
   components: {
     HelloWorld,
     List,
+    Loading
   },
   data(){
     return{
@@ -46,5 +49,9 @@ export default {
   margin-top: 60px;
   width: 1200px;
   margin: 0 auto;
+}
+.loading{
+  height: 300px;
+  overflow: hidden;
 }
 </style>
