@@ -1,10 +1,10 @@
 <template>
   <div id="app" >
     <img alt="Vue logo" src="./assets/logo.png">
-
     <sele @changer="one"/>
     <List :list="list" v-show="!show"></List>
     <div class="loading" v-show="show"><Loading /></div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -13,6 +13,7 @@ import {ChannelId} from './components/getDate'
 import sele from './components/sele.vue'
 import List from './components/listC'
 import Loading from './components/Loading'
+
 export default {
   name: 'App',
   components: {
