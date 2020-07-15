@@ -1,10 +1,16 @@
 <template>
   <div id="app" >
+    <router-view></router-view>
+    <div>
+      <Router-link :to="{name: 'one'}">head</Router-link>
+      <Router-link :to="{ name: 'two', params:{ id: test}}">laoding</Router-link>
+      <Router-link to="/three">lic</Router-link>
+    </div>
     <img alt="Vue logo" src="./assets/logo.png">
     <sele @changer="one"/>
     <List :list="list" v-show="!show"></List>
     <div class="loading" v-show="show"><Loading /></div>
-    <router-view></router-view>
+    
   </div>
 </template>
 
@@ -19,11 +25,13 @@ export default {
   components: {
     sele,
     List,
-    Loading
+    Loading,
+
   },
   data(){
     return{
       list: 'undefault',
+      test: 'load',
       show: true
     }
   },
