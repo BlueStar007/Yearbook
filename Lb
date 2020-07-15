@@ -1,0 +1,44 @@
+<template>
+<div class="con">
+        <div class="conItem" style="transform: translateX(-100px)"  v-for="(i,index) in imgList" :key="index">
+            <a href="">
+                <img :src="i" alt="">
+            </a>
+        </div>
+</div>
+</template>
+
+<script>
+export default {
+    name: 'Lb',
+    data(){
+        return {
+        imgList: [
+                    'http://www-file.huawei.com/-/media/corp2020/home/banner/1/sustainability-cn2.jpg',
+                    'http://www-file.huawei.com/-/media/corp2020/home/banner/1/hwcloud-discount.jpg',
+                    'http://www-file.huawei.com/-/media/corp2020/home/banner/1/vmall_sv_pc.png'
+                 ]
+        ,cm: 300
+
+        }
+        
+    },
+    created(){
+        setInterval(()=>{
+                
+        },3000)
+    }
+}
+</script>
+
+<style>
+.con{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden;
+}   
+.conItem{
+    transition: all 3   00ms;
+}
+</style>
