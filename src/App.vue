@@ -1,5 +1,7 @@
 <template>
   <div id="app" >
+    <TapBar :item="list.slice(0,5)" />
+    <Lb />
     <router-view></router-view>
     <div>
       <Router-link :to="{name: 'one'}">head</Router-link>
@@ -8,24 +10,27 @@
     </div>
     <img alt="Vue logo" src="./assets/logo.png">
     <sele @changer="one"/>
-    <List :list="list" v-show="!show"></List>
+    <!-- <List :list="list" v-show="!show"></List> -->
     <div class="loading" v-show="show"><Loading /></div>
     
   </div>
 </template>
 
 <script>
-import {ChannelId} from './components/getDate'
+import {ChannelId} from './server/getDate'
 import sele from './components/sele.vue'
-import List from './components/listC'
+// import List from './components/listC'
 import Loading from './components/Loading'
-
+import Lb from './components/Lb'
+import TapBar from './components/Top'
 export default {
   name: 'App',
   components: {
     sele,
-    List,
+    // List,
     Loading,
+    Lb,
+    TapBar,
 
   },
   data(){
@@ -40,7 +45,6 @@ export default {
       this.show=true;
       this.itemId=e;
       this.getList(e)
-      
     },
     async getList(id){ 
             var i= await ChannelId(id);  

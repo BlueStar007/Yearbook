@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {getPd} from './getDate';
+import {getPd} from '../server/getDate';
 export default {
   name: 'HelloWorld', 
   computed: {

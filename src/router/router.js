@@ -6,21 +6,21 @@ var router = new VueRouter({
             path: './one',
             name: 'one',
             component: () =>
-                import ('./header')
+                import ('../components/header')
 
         },
         {
             path: '/:id',
             name: 'two',
             component: () =>
-                import ('./Loading')
+                import ('../components/Loading')
 
         },
         {
             path: './three',
             name: 'three',
             component: () =>
-                import ('./listC')
+                import ('../components/listC')
 
         },
     ],
