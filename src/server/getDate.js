@@ -25,7 +25,8 @@ export async function ChannelId(id) {
         params: {
             channelId: id,
             needAllList: 'allList',
-            needContent: 1
+            needContent: 1,
+            maxResult: '10'
         }
     })
     return data.data.showapi_res_body.pagebean.contentlist;

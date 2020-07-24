@@ -1,61 +1,66 @@
 <template>
   <div id="app" >
     <TapBar :item="list.slice(0,5)" />
+    <!-- <router-view></router-view> -->
     <Lb />
-    <router-view></router-view>
-    <div>
-      <Router-link :to="{name: 'one'}">head</Router-link>
-      <Router-link :to="{ name: 'two', params:{ id: test}}">laoding</Router-link>
-      <Router-link to="/three">lic</Router-link>
-    </div>
-    <img alt="Vue logo" src="./assets/logo.png">
     <sele @changer="one"/>
-    <!-- <List :list="list" v-show="!show"></List> -->
+    <List :id="id" v-show="!show"></List>
     <div class="loading" v-show="show"><Loading /></div>
-    
+    <BomBar/>
   </div>
 </template>
 
 <script>
-import {ChannelId} from './server/getDate'
 import sele from './components/sele.vue'
-// import List from './components/listC'
+import List from './components/listC'
 import Loading from './components/Loading'
 import Lb from './components/Lb'
 import TapBar from './components/Top'
+import BomBar from './components/bomBar'
+import {login,reg} from './server/test';
+
 export default {
   name: 'App',
   components: {
     sele,
-    // List,
+    List,
     Loading,
     Lb,
     TapBar,
+    BomBar,
 
+  },
+  computed: {
+     id(){
+       return this.itemId
+     }
   },
   data(){
     return{
       list: 'undefault',
       test: 'load',
-      show: true
+      show: false,
+      itemId:''
     }
+  },
+  async created(){
+      let res= await reg()
+      console.log(res);
+      login();
+      
+      
   },
   methods: {
     one(e){
-      this.show=true;
       this.itemId=e;
-      this.getList(e)
+    
     },
-    async getList(id){ 
-            var i= await ChannelId(id);  
-            this.list=i;
-            this.show=false
-    },
+    
   }
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

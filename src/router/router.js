@@ -3,10 +3,10 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter)
 var router = new VueRouter({
     routes: [{
-            path: './one',
+            path: '/one/:id',
             name: 'one',
             component: () =>
-                import ('../components/header')
+                import ('../components/listC')
 
         },
         {

@@ -2,7 +2,8 @@
   <div class="con">
     <div class="item" @click="btn(item.channelId)" v-for="item in show" :class="{
       active: item.channelId===index}" 
-      :key="item.channelId">{{item.name}}</div>
+      :key="item.channelId">{{item.name}}
+    </div>
     <a style="transform:translateY(15px)" href="" @click.prevent="kg=!kg">{{kg ? '关闭':'展开' }}</a>
   </div>
   
@@ -47,7 +48,7 @@ export default {
     btn(id){
     this.index=id;
     this.$emit('changer',id)
-    
+
   }
   },
  
