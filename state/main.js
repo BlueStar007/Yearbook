@@ -3,8 +3,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 var store = new Vuex.Store({
     state: {
-        nihao: 'nihao',
-        test: '测试'
+        isShow: false
     }
 })
 export default store;

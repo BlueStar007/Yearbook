@@ -1,6 +1,5 @@
 <template>
 <div>
-    
         <div class="container" v-for="item in list" :key="item.id">
                 <div class="left" v-if="item.havePic">
                     <a :href="item.link">

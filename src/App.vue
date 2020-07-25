@@ -4,8 +4,8 @@
     <!-- <router-view></router-view> -->
     <Lb />
     <sele @changer="one"/>
-    <List :id="id" v-show="!show"></List>
-    <div class="loading" v-show="show"><Loading /></div>
+    <List :id="id" v-show="!isShow"></List>
+    <div class="loading" v-show="isShow"><Loading /></div>
     <BomBar/>
   </div>
 </template>
@@ -18,7 +18,7 @@ import Lb from './components/Lb'
 import TapBar from './components/Top'
 import BomBar from './components/bomBar'
 import {login,reg} from './server/test';
-
+import {mapState} from 'vuex'
 export default {
   name: 'App',
   components: {
@@ -33,13 +33,15 @@ export default {
   computed: {
      id(){
        return this.itemId
-     }
+     },
+     ...mapState({
+       isShow: 'isShow'
+     })
   },
   data(){
     return{
       list: 'undefault',
       test: 'load',
-      show: false,
       itemId:''
     }
   },
@@ -47,8 +49,6 @@ export default {
       let res= await reg()
       console.log(res);
       login();
-      
-      
   },
   methods: {
     one(e){
