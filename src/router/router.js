@@ -6,7 +6,7 @@ var router = new VueRouter({
             path: '/one/:id',
             name: 'one',
             component: () =>
-                import ('../components/listC')
+                import ('../components/header')
 
         },
         {

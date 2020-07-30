@@ -48,7 +48,6 @@ export default {
     btn(id){
     this.index=id;
     this.$emit('changer',id)
-
   }
   },
  
@@ -60,6 +59,7 @@ export default {
   display :flex;
   flex-direction :row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .item{
   padding: 8px 15px;

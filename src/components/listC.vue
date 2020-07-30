@@ -1,5 +1,6 @@
 <template>
 <div>
+    
         <div class="container" v-for="item in list" :key="item.id">
                 <div class="left" v-if="item.havePic">
                     <a :href="item.link">
@@ -25,7 +26,11 @@ export default {
     name: 'List',
     watch: {
         id :function(){
-            let res= this.getD(this.id)
+            let res= this.getD(this.id,this.num)
+            this.list=res;
+        },
+        index :function(){
+            let res= this.getD(this.id,this.num)
             this.list=res;
         }
     },
@@ -34,15 +39,15 @@ export default {
             list: ''
          }
     },
-    props: ['id'],
+    props: ['id','index'],
     created(){
         this.getD(this.id)
  
     },
     methods: {
-        async   getD(id){
-            let res= await ChannelId(id);
-            this.list=res
+        async   getD(id,index){
+            let res= await ChannelId(id,index);
+            this.list=res;
         }
     }
 }

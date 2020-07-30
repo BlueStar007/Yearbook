@@ -7,6 +7,7 @@
     <List :id="id" v-show="!isShow"></List>
     <div class="loading" v-show="isShow"><Loading /></div>
     <BomBar/>
+    <Test/>
   </div>
 </template>
 
@@ -19,6 +20,7 @@ import TapBar from './components/Top'
 import BomBar from './components/bomBar'
 import {login,reg} from './server/test';
 import {mapState} from 'vuex'
+import Test from './components/Test'
 export default {
   name: 'App',
   components: {
@@ -28,7 +30,7 @@ export default {
     Lb,
     TapBar,
     BomBar,
-
+    Test,
   },
   computed: {
      id(){
